@@ -2,15 +2,18 @@
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <body>
-<h1> Hello World </h1>
-<svg width=1000 height=1000>
-</svg>
+<h1> CS 498 Narrative Visualization </h1>
+<h3> Created by: Nicholas O'Connell </h3>
+<h5> Scene 1 </h5>
 <script>
-var svg = d3.select('svg'),
-	width = svg.width,
-	height = svg.height;
-console.log(width);
-console.log(height);
+var width = 1000,
+	height = 1000,
+	margin = 100;
+
+var svg = d3.select("body")
+			.append("svg")
+			.attr("width", width)
+			.attr("height", height);
 </script>
 </body>
 </html>
