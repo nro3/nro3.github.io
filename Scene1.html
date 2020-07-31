@@ -33,7 +33,9 @@ svg.append("g")
    .append("circle")
      .attr("cx", function(d,i) { return x(d.Date); })
 	 .attr("cy", function(d,i) { return y(d.Total_Cases); })
-	 .attr("r", function(d,i) { return (2+#d.New_Daily_Cases); });
+	 .attr("r", function(d,i) {
+	    var tempNumber = +d.New_Daily_Cases;
+	    return (2+tempNumber); });
 		  
 svg.append("g")
    .attr("transform","translate("+margin+","+margin+")")
