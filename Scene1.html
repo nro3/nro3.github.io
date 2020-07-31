@@ -8,6 +8,7 @@
 <input type="button" onclick="window.location.href='https://nro3.github.io/index.html';" value="Home" />
 <input type="button" onclick="window.location.href='https://nro3.github.io/Scene2.html';" value="Next" />
 <script>
+var covid_data = d3.csv("https://nro3.github.io/IllinoisCOVIDData");
 var width = 500,
 	height = 500,
 	margin = 50;
@@ -20,9 +21,19 @@ var svg = d3.select("body")
 var x = d3.scaleLinear()
 		  .domain([0,100])
 		  .range([margin,width-margin]);
-var y = d3.scaleLinear()
-		  .domain([0,100])
+var y = d3.scaleTime()
+		  .domain([new Date(2020,0,22), new Date(2020,6,30)])
 		  .range([margin,height-margin]);
+
+svg.append("g")
+   .attr("transform","translate("+margin+","+margin+")")
+   .selectAll("circle")
+   .data(covid_data)
+   .enter()
+   .append("circle")
+     .attr("cx", function(d,i) { return x(d.Date); })
+	 .attr("cy", function(d,i) { return y(d.Total_Cases); })
+	 .attr("r", function(d,i) { return (2+#d.New_Daily_Cases); });
 		  
 svg.append("g")
    .attr("transform","translate("+margin+","+margin+")")
