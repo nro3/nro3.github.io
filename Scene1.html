@@ -21,7 +21,7 @@ async function init() {
 
 	var x = d3.scaleLinear()
 			.domain([new Date(2020,0,22), new Date(2020,6,30)])
-			.range([margin,width-margin]);
+			.range([margin,(width-margin)]);
 	var y = d3.scaleLinear()
 			.domain([200000,0])
 			.range([margin,(height-margin)]);
