@@ -37,7 +37,7 @@ async function init() {
 		.append("circle")
 			.attr("cx", function(d,i) { return x(new Date(d.Date)); })
 			.attr("cy", function(d,i) { return y(d.New_Daily_Cases); })
-			.attr("r", 2)
+			.attr("r", 4)
 			.attr("fill", function(d,i) {return color(d.New_Daily_Cases); })
 			.attr("stroke-width", "0.5px")
 			.attr("stroke", "black");
