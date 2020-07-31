@@ -25,6 +25,9 @@ async function init() {
 	var y = d3.scaleLinear()
 			.domain([4050,0])
 			.range([0,(height-2*margin)]);
+	var color = d3.scaleLinear()
+			.domain([0,4050])
+			.range(["yellow","red"]);
 
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
@@ -35,7 +38,7 @@ async function init() {
 			.attr("cx", function(d,i) { return x(new Date(d.Date)); })
 			.attr("cy", function(d,i) { return y(d.New_Daily_Cases); })
 			.attr("r", 2)
-			.attr("fill", "green")
+			.attr("fill", function(d,i) {return color(d.New_Daily_Cases); })
 			.attr("stroke-width", "0.5px")
 			.attr("stroke", "black");
 		  
