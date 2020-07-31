@@ -24,7 +24,13 @@ var y = d3.scaleLinear()
 		  .domain([0,100])
 		  .range([margin,height-margin]);
 		  
+svg.append("g")
+   .attr("transform","translate("+margin+","+margin+")")
+   .call(axisLeft(y));
 
+svg.append("g")
+   .attr("transform","translate("+margin+","+(height-margin)+")")
+   .call(axisBottom(x));
 </script>
 </body>
 </html>
