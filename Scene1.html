@@ -23,8 +23,8 @@ async function init() {
 			.domain([new Date(2020,0,22), new Date(2020,6,30)])
 			.range([margin,width-margin]);
 	var y = d3.scaleLinear()
-			.domain([0,200000])
-			.range([margin,height-margin]);
+			.domain([200000,0])
+			.range([margin,(height-margin)]);
 
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
