@@ -22,10 +22,10 @@ async function init() {
 
 	var x = d3.scaleLinear()
 			.domain([new Date(2020,0,22), new Date(2020,6,30)])
-			.range([0,(width-margin)]);
+			.range([0,(width-2*margin)]);
 	var y = d3.scaleLinear()
 			.domain([200000,0])
-			.range([0,(height-margin)]);
+			.range([0,(height-2*margin)]);
 
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
