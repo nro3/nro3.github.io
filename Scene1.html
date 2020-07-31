@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
-<body>
+<body onload='init()'>
 <h1> CS 498 Narrative Visualization </h1>
 <h3> Created by: Nicholas O'Connell </h3>
 <h4> Scene 1 </h4>
 <input type="button" onclick="window.location.href='https://nro3.github.io/index.html';" value="Home" />
 <input type="button" onclick="window.location.href='https://nro3.github.io/Scene2.html';" value="Next" />
 <script>
-var covid_data = d3.csv("https://nro3.github.io/IllinoisCOVIDData");
-var width = 500,
-	height = 500,
-	margin = 50;
+async function init() {
+	const covid_data = await d3.csv("https://nro3.github.io/IllinoisCOVIDData");
+	var width = 500,
+		height = 500,
+		margin = 50;
 
-var svg = d3.select("body")
-			.append("svg")
-			.attr("width", width)
-			.attr("height", height);
+	var svg = d3.select("body")
+				.append("svg")
+				.attr("width", width)
+				.attr("height", height);
 
-var x = d3.scaleLinear()
-		  .domain([0,100])
-		  .range([margin,width-margin]);
-var y = d3.scaleTime()
-		  .domain([new Date(2020,0,22), new Date(2020,6,30)])
-		  .range([margin,height-margin]);
+	var x = d3.scaleLinear()
+			.domain([new Date(2020,0,22), new Date(2020,6,30)])
+			.range([margin,width-margin]);
+	var y = d3.scaleLinear()
+			.domain([0,200000])
+			.range([margin,height-margin]);
 
-svg.append("g")
-   .attr("transform","translate("+margin+","+margin+")")
-   .selectAll("circle")
-   .data(covid_data)
-   .enter()
-   .append("circle")
-     .attr("cx", function(d,i) { return x(d.Date); })
-	 .attr("cy", function(d,i) { return y(d.Total_Cases); })
-	 .attr("r", function(d,i) {
-	    var tempNumber = +d.New_Daily_Cases;
-	    return (2+tempNumber); });
+	svg.append("g")
+		.attr("transform","translate("+margin+","+margin+")")
+		.selectAll("circle")
+		.data(covid_data)
+		.enter()
+		.append("circle")
+			.attr("cx", function(d,i) { return x(d.Date); })
+			.attr("cy", function(d,i) { return y(d.Total_Cases); })
+			.attr("r", function(d,i) {
+				var tempNumber = +d.New_Daily_Cases;
+				return (2+tempNumber); });
 		  
-svg.append("g")
-   .attr("transform","translate("+margin+","+margin+")")
-   .call(d3.axisLeft(y));
+	svg.append("g")
+		.attr("transform","translate("+margin+","+margin+")")
+		.call(d3.axisLeft(y));
 
-svg.append("g")
-   .attr("transform","translate("+margin+","+(height-margin)+")")
-   .call(d3.axisBottom(x));
+	svg.append("g")
+		.attr("transform","translate("+margin+","+(height-margin)+")")
+		.call(d3.axisBottom(x));
+}
 </script>
 </body>
 </html>
