@@ -22,7 +22,7 @@ async function init() {
 
 	var x = d3.scaleTime()
 			.domain([new Date("2020-01-22"), new Date("2020-07-30")])
-			.range([0,(width-2*margin)]);
+			.rangeRound([0,(width-2*margin)]);
 	var y = d3.scaleLinear()
 			.domain([200000,0])
 			.range([0,(height-2*margin)]);
@@ -37,7 +37,7 @@ async function init() {
 			.attr("cy", function(d,i) { return y(d.Total_Cases); })
 			.attr("r", function(d,i) {
 				var tempNumber = (+d.New_Daily_Cases)/400;
-				return 2; });
+				return (2+tempNumber); });
 		  
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
