@@ -26,6 +26,9 @@ async function init() {
 	var y = d3.scaleLinear()
 			.domain([200000,0])
 			.range([0,(height-2*margin)]);
+	var color = d3.scaleLinear()
+			.domain([0,4050])
+			.range(["yellow","red"]);
 
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
@@ -37,7 +40,8 @@ async function init() {
 			.attr("cy", function(d,i) { return y(d.Total_Cases); })
 			.attr("r", function(d,i) {
 				var tempNumber = (+d.New_Daily_Cases)/400;
-				return (2+tempNumber); });
+				return (2+tempNumber); })
+			.attr("fill", function(d,i) {return color(d.New_Daily_Cases); });
 		  
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
