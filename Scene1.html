@@ -21,7 +21,7 @@ async function init() {
 				.attr("height", height);
 
 	var x = d3.scaleTime()
-			.domain([new Date(2020,0,22), new Date(2020,6,30)])
+			.domain([new Date("2020-01-22"), new Date("2020-07-30")])
 			.range([0,(width-2*margin)]);
 	var y = d3.scaleLinear()
 			.domain([200000,0])
