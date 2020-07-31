@@ -26,11 +26,11 @@ var y = d3.scaleLinear()
 		  
 svg.append("g")
    .attr("transform","translate("+margin+","+margin+")")
-   .call(axisLeft(y));
+   .call(d3.axisLeft(y));
 
 svg.append("g")
    .attr("transform","translate("+margin+","+(height-margin)+")")
-   .call(axisBottom(x));
+   .call(d3.axisBottom(x));
 </script>
 </body>
 </html>
