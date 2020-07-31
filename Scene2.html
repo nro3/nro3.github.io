@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html>
 <script src='https://d3js.org/d3.v5.min.js'></script>
-<body>
+<body onload='init()'>
 <h1> CS 498 Narrative Visualization </h1>
 <h3> Created by: Nicholas O'Connell </h3>
 <h4> Scene 2 </h4>
 <input type="button" onclick="window.location.href='https://nro3.github.io/index.html';" value="Home" />
 <br>
 <script>
-var width = 500,
-	height = 500,
-	margin = 50;
+async function init() {
+	const covid_data = await d3.csv('https://nro3.github.io/IllinoisCOVIDData.csv');
+	var width = 500,
+		height = 500,
+		margin = 50;
 
-var svg = d3.select("body")
-			.append("svg")
-			.attr("width", width)
-			.attr("height", height);
+	var svg = d3.select("body")
+				.append("svg")
+				.attr("width", width)
+				.attr("height", height);
+
+	var x = d3.scaleTime()
+			.domain([new Date("2020-01-22"), new Date("2020-07-30")])
+			.range([0,(width-2*margin)]);
+	var y = d3.scaleLinear()
+			.domain([4050,0])
+			.range([0,(height-2*margin)]);
+
+	svg.append("g")
+		.attr("transform","translate("+margin+","+margin+")")
+		.selectAll("circle")
+		.data(covid_data)
+		.enter()
+		.append("circle")
+			.attr("cx", function(d,i) { return x(new Date(d.Date)); })
+			.attr("cy", function(d,i) { return y(d.New_Daily_Cases); })
+			.attr("r", 2)
+			.attr("fill", "green")
+			.attr("stroke-width", "0.5px")
+			.attr("stroke", "black");
+		  
+	svg.append("g")
+		.attr("transform","translate("+margin+","+margin+")")
+		.call(d3.axisLeft(y));
+
+	svg.append("g")
+		.attr("transform","translate("+margin+","+(height-margin)+")")
+		.call(d3.axisBottom(x));
+}
 </script>
 </body>
 </html>
