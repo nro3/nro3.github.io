@@ -54,7 +54,7 @@ async function init() {
 				.attr("y", y(d.New_Daily_Cases))
 				.attr("font-size", 16)
 				.attr("fill", "purple")
-				.text("["+d.date+","+d.New_Daily_Cases+"]");
+				.text("["+d.Date+","+d.New_Daily_Cases+"]");
 		})
 		.on("mouseout", function(d,i) {
 			curr = d3.select(this);
