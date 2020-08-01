@@ -121,10 +121,23 @@ async function init() {
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
 		.call(d3.axisLeft(y));
+		
+	svg.append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("y", 0-margin)
+		.attr("x", 0-((height - 2*margin)/2))
+		.attr("dy", "1em")
+		.style("text-anchor", "middle")
+		.text("Number of Daily Infections");
 
 	svg.append("g")
 		.attr("transform","translate("+margin+","+(height-margin)+")")
 		.call(d3.axisBottom(x));
+		
+	svg.append("text")
+		.attr("transform", "translate("+((width-2*margin)/2)+","+(height-margin+(margin/2))+")")
+		.style("text-anchor", "middle")
+		.text("Date");
 }
 </script>
 <br>
