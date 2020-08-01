@@ -130,6 +130,11 @@ async function init() {
 	svg.append("g")
 		.attr("transform","translate("+margin+","+(height-margin)+")")
 		.call(d3.axisBottom(x));
+
+	svg.append("text")
+		.attr("transform", "translate("+(width/2)+","+(height-margin+(margin/2))+")")
+		.style("text-anchor", "middle")
+		.text("Date");
 }
 </script>
 <br>
