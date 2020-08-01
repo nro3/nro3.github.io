@@ -43,7 +43,7 @@ async function init() {
 				var tempNumber = (+d.New_Daily_Cases)/400;
 				return (2+tempNumber); })
 			.attr("fill", function(d,i) {return color(d.New_Daily_Cases); })
-		.on("mouseover", function(d,i) {
+		.on("click", function(d,i) {
 			curr = d3.select(this);
 			curr.transition()
 				.duration(1000)
@@ -98,7 +98,7 @@ async function init() {
 			.append("textPath")
 				.attr("xlink:href", function(d,i) { return "#myLine"+i; })
 				.text(function(d,i) { return d.Event; })
-		.on("click", function(d,i) {
+		.on("mouseover", function(d,i) {
 			curr = d3.select(this);
 			curr.transition()
 				.duration(1000)
