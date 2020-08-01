@@ -52,7 +52,7 @@ async function init() {
 				.attr("id", "myCircle"+i)
 				.attr("x", x(new Date(d.Date)))
 				.attr("y", y(d.New_Daily_Cases))
-				.attr("font-size", 16)
+				.attr("font-size", 14)
 				.attr("fill", "purple")
 				.text("["+d.Date+","+d.New_Daily_Cases+"]");
 		})
@@ -72,6 +72,7 @@ async function init() {
 		.data(annotation_data)
 		.enter()
 		.append("path")
+			.attr("id", function(d,i) { return "myLine"+i; })
 			.attr("d", function(d,i) { return ("M"+Math.round(x(new Date(d.Date)))+ " 0 v400"); })
 			.attr("stroke-dasharray", "3,3")
 			.attr("stroke-width", "3px")
