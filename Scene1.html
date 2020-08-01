@@ -61,7 +61,7 @@ async function init() {
 				.duration(2000)
 				.attr("d", "M 0 0 h400")
 		})
-		.on("mouseoff", function(d,i) {
+		.on("mouseout", function(d,i) {
 			curr = d3.select(this);
 			curr.transition()
 				.duration(2000)
