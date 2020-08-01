@@ -66,7 +66,7 @@ async function init() {
 					var tempNumber = (+d.New_Daily_Cases)/400;
 					return (2+tempNumber); })
 				.attr("fill", function(d,i) {return color(d.New_Daily_Cases); });
-			d3.select(function(d,i) { return "#myCircle"+i; }).remove()
+			svg.select(function(d,i) { return "#myCircle"+i; }).remove();
 		});
 			
 	svg.append("g")
