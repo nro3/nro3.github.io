@@ -117,6 +117,22 @@ async function init() {
 				.attr("font-size", 12)
 				.attr("fill", "forestgreen");
 		});
+		
+	svg.append("line")
+		.attr("fill", "blue")
+		.attr("stroke-width", "2px")
+		.attr("x1", x(new Date("2020-03-16")))
+		.attr("x2", x(new Date("2020-05-14")))
+		.attr("y1", (height-margin))
+		.attr("y2", margin);
+		
+	svg.append("line")
+		.attr("fill", "blue")
+		.attr("stroke-width", "2px")
+		.attr("x1", x(new Date("2020-06-24")))
+		.attr("x2", x(new Date("2020-07-30")))
+		.attr("y1", y(720))
+		.attr("y2", y(1777));
 		  
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
@@ -124,8 +140,8 @@ async function init() {
 		
 	svg.append("text")
 		.attr("transform", "rotate(-90)")
-		.attr("y", 0-margin)
-		.attr("x", 0-((height - 2*margin)/2))
+		.attr("y", ((height - 2*margin)/2))
+		.attr("x", margin/2))
 		.attr("dy", "1em")
 		.style("text-anchor", "middle")
 		.text("Number of Daily Infections");
@@ -135,7 +151,7 @@ async function init() {
 		.call(d3.axisBottom(x));
 		
 	svg.append("text")
-		.attr("transform", "translate("+((width-2*margin)/2)+","+(height-margin+(margin/2))+")")
+		.attr("transform", "translate("+((width-margin)/2)+","+(height-margin+(margin/2))+")")
 		.style("text-anchor", "middle")
 		.text("Date");
 }
