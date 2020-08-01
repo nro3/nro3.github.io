@@ -76,7 +76,7 @@ async function init() {
 		.enter()
 		.append("text")
 			.style("font-size", 12)
-			.attr("fill", "red")
+			.attr("fill", "orange")
 			.append("textPath")
 				.attr("xlink:href", function(d,i) { return "#myLine"+i; })
 				.text(function(d,i) { return d.Event; })
@@ -84,7 +84,15 @@ async function init() {
 			curr = d3.select(this);
 			curr.transition()
 				.duration(1000)
-				.style("font-size", 12);
+				.style("font-size", 20)
+				.attr("fill", "red");
+		})
+		.on("mouseout", function(d,i) {
+			curr = d3.select(this);
+			curr.transition()
+				.duration(1000)
+				.style("font-size", 12)
+				.attr("fill", "orange");
 		});
 			
 		  
