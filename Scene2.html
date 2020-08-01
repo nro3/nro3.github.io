@@ -51,7 +51,7 @@ async function init() {
 			svg.append("text")
 				.attr("id", "myCircle"+i)
 				.attr("x", x(new Date(d.Date)))
-				.attr("y", y(d.New_Daily_Cases))
+				.attr("y", y(d.New_Daily_Cases)-5)
 				.attr("font-size", 14)
 				.attr("fill", "purple")
 				.text("["+d.Date+","+d.New_Daily_Cases+"]");
