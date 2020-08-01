@@ -49,7 +49,7 @@ async function init() {
 		.selectAll("path")
 		.data(annotation_data)
 		.enter()
-		.append("line")
+		.append("path")
 			.attr("d", function(d,i) { return ("M"+(x(new Date(d.Date)))+ " 0 v0 400"); });
 		  
 	svg.append("g")
