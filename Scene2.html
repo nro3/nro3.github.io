@@ -98,7 +98,7 @@ async function init() {
 		.enter()
 		.append("text")
 			.attr("font-size", 12)
-			.attr("fill", "orange")
+			.attr("fill", "forestgreen")
 			.append("textPath")
 				.attr("xlink:href", function(d,i) { return "#myLine"+i; })
 				.text(function(d,i) { return d.Event; })
@@ -115,7 +115,7 @@ async function init() {
 				.duration(1000)
 				.delay(1000)
 				.attr("font-size", 12)
-				.attr("fill", "orange");
+				.attr("fill", "forestgreen");
 		});
 		  
 	svg.append("g")
@@ -127,5 +127,11 @@ async function init() {
 		.call(d3.axisBottom(x));
 }
 </script>
+<br>
+<p> This chart shows the daily number of infections in Illinois as of July 30th. The large spike at the end of April and throughout May was when Illinois saw its
+	highest rate of infections and deaths due to COVID-19. The government measures imposed in mid-March take a long time to take effect, but by the end of May the 
+	daily infections are decreased significantly due to these measures. Unfortunately, Illinois is seeing a steady rise in daily infections again through July, most
+	likely due to these stringent measures being relaxed too early. However, the rise is much slower than in May as shown by the difference in slope of the two blue 
+	trend lines, most likely due to the mandate requiring masks to be worn in public throughout Illinois. </p>
 </body>
 </html>
