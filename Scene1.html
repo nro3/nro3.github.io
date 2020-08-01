@@ -46,15 +46,11 @@ async function init() {
 			
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
-		.selectAll("line")
+		.selectAll("path")
 		.data(annotation_data)
 		.enter()
 		.append("line")
-			.attr("x1", function(d,i) { return x(new Date(d.Date)); })
-			.attr("y1", margin)
-			.attr("x2", function(d,i) { return x(new Date(d.Date)); })
-			.attr("y2", (height-margin))
-			.style("stroke-dasharray", ("3,3"));
+			.attr("d", function(d,i) { return ("M"+x(new Date(d.Date))+ " 450 v0 400"); })
 		  
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
