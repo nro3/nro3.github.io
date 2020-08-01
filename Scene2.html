@@ -41,7 +41,7 @@ async function init() {
 			.attr("r", 4)
 			.attr("fill", function(d,i) {return color(d.New_Daily_Cases); })
 			.attr("stroke-width", "0.5px")
-			.attr("stroke", "black");
+			.attr("stroke", "black")
 		.on("mouseover", function(d,i) {
 			curr = d3.select(this);
 			curr.transition()
@@ -75,7 +75,7 @@ async function init() {
 			.attr("d", function(d,i) { return ("M"+Math.round(x(new Date(d.Date)))+ " 0 v400"); })
 			.attr("stroke-dasharray", "3,3")
 			.attr("stroke-width", "3px")
-			.attr("stroke", "black");
+			.attr("stroke", "black")
 		.on("click", function(d,i) {
 			curr = d3.select(this);
 			curr.transition()
