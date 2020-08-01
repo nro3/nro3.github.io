@@ -51,7 +51,7 @@ async function init() {
 		.enter()
 		.append("path")
 			.attr("id", function(d,i) { return "myLine"+i; })
-			.attr("d", function(d,i) { return ("M"+Math.round(x(new Date(d.Date)))+ " 0 v400"); })
+			.attr("d", function(d,i) { return ("M"+(x(new Date(d.Date)))+ " 0 v400"); })
 			.attr("stroke-dasharray", "3,3")
 			.attr("stroke-width", "3px")
 			.attr("stroke", "black");
@@ -65,9 +65,7 @@ async function init() {
 			.style("font-size", 12)
 			.append("textPath")
 				.attr("xlink:href", function(d,i) { return "#myLine"+i; })
-				.text(function(d,i) { return d.Event; })
-			.append("use")
-				.attr("xlink:href", function(d,i) { return "#myLine"+i; });
+				.text(function(d,i) { return d.Event; });
 			
 		  
 	svg.append("g")
