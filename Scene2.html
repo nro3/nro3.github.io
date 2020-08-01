@@ -121,8 +121,8 @@ async function init() {
 	svg.append("line")
 		.attr("stroke", "blue")
 		.attr("stroke-width", "4px")
-		.attr("x1", x(new Date("2020-03-16")))
-		.attr("x2", x(new Date("2020-05-14")))
+		.attr("x1", x(new Date("2020-03-16"))+margin)
+		.attr("x2", x(new Date("2020-05-14"))+margin)
 		.attr("y1", (height-margin))
 		.attr("y2", margin);
 		
@@ -140,8 +140,7 @@ async function init() {
 		
 	svg.append("text")
 		.attr("transform", "rotate(-90)")
-		.attr("y", ((height - 2*margin)/2))
-		.attr("x", margin/2)
+		.attr("transform", "translate("+(margin/2)+","+(height/2)+")")
 		.attr("dy", "1em")
 		.style("text-anchor", "middle")
 		.text("Number of Daily Infections");
