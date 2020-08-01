@@ -50,7 +50,7 @@ async function init() {
 		.data(annotation_data)
 		.enter()
 		.append("path")
-			.attr("id", "myLine")
+			.attr("id", function(d,i) { return "myLine"+i; })
 			.attr("d", function(d,i) { return ("M"+Math.round(x(new Date(d.Date)))+ " 0 v400"); })
 			.attr("stroke-dasharray", "3,3")
 			.attr("stroke-width", "3px")
@@ -58,16 +58,16 @@ async function init() {
 	
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
-		.selectAll("path")
+		.selectAll("text")
 		.data(annotation_data)
 		.enter()
 		.append("text")
 			.style("font-size", 12)
 			.append("textPath")
-				.attr("xlink:href", "#myLine")
+				.attr("xlink:href", function(d,i) { return "#myLine"+i; })
 				.text(function(d,i) { return d.Event; })
 			.append("use")
-				.attr("xlink:href", "#myLine");
+				.attr("xlink:href", function(d,i) { return "#myLine"+i; });
 			
 		  
 	svg.append("g")
