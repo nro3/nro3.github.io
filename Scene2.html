@@ -131,7 +131,7 @@ async function init() {
 		.attr("stroke-width", "4px")
 		.attr("x1", x(new Date("2020-06-01"))+margin)
 		.attr("x2", x(new Date("2020-07-30"))+margin)
-		.attr("y1", height+margin)
+		.attr("y1", (height-margin))
 		.attr("y2", y(1777)+margin);
 		  
 	svg.append("g")
@@ -140,7 +140,7 @@ async function init() {
 		
 	svg.append("text")
 		.attr("transform", "rotate(-90)")
-		.attr("x", 0-(margin/2))
+		.attr("x", 0-(margin))
 		.attr("y", (height/2))
 		.attr("dy", "1em")
 		.style("text-anchor", "middle")
