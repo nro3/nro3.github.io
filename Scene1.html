@@ -50,7 +50,9 @@ async function init() {
 		.data(annotation_data)
 		.enter()
 		.append("path")
-			.attr("d", function(d,i) { return ("M"+Math.round(x(new Date(d.Date)))+ " 0 v400"); });
+			.attr("d", function(d,i) { return ("M"+Math.round(x(new Date(d.Date)))+ " 0 v400"); })
+			.attr("stroke-width", "3px")
+			.attr("stroke", "black");
 		  
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
