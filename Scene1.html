@@ -51,6 +51,7 @@ async function init() {
 		.enter()
 		.append("path")
 			.attr("d", function(d,i) { return ("M"+Math.round(x(new Date(d.Date)))+ " 0 v400"); })
+			.attr("stroke-dasharray", "3,3")
 			.attr("stroke-width", "3px")
 			.attr("stroke", "black");
 		  
