@@ -57,7 +57,10 @@ async function init() {
 			.attr("stroke", "black");
 	
 	svg.append("g")
-		.attr("transform","translate("+margin+","+margin+")")	
+		.attr("transform","translate("+margin+","+margin+")")
+		.selectAll("path")
+		.data(annotation_data)
+		.enter()
 		.append("text")
 			.style("font-size", 12)
 			.append("textPath")
