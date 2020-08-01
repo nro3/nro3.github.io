@@ -126,6 +126,14 @@ async function init() {
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
 		.call(d3.axisLeft(y));
+		
+	svg.append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("x", 0-(height/2))
+		.attr("y", 0)
+		.attr("dy", "1em")
+		.style("text-anchor", "middle")
+		.text("Total Number of Infections");
 
 	svg.append("g")
 		.attr("transform","translate("+margin+","+(height-margin)+")")
