@@ -48,18 +48,18 @@ async function init() {
 			curr.transition()
 				.duration(1000)
 				.attr("r", function(d,i) {
-					var tempNumber = (+d.New_Daily_Cases)/400;
+					var tempNumber = (+d.New_Daily_Cases)/200;
 					return (2+tempNumber); })
-				.attr("fill", function(d,i) {return color(d.New_Daily_Cases); })
+				.attr("fill", "blue");
 		})
 		.on("mouseout", function(d,i) {
 			curr = d3.select(this);
 			curr.transition()
 				.duration(2000)
 				.attr("r", function(d,i) {
-					var tempNumber = (+d.New_Daily_Cases)/200;
+					var tempNumber = (+d.New_Daily_Cases)/400;
 					return (2+tempNumber); })
-				.attr("fill", "blue")
+				.attr("fill", function(d,i) {return color(d.New_Daily_Cases); });
 		});
 			
 	svg.append("g")
@@ -77,7 +77,7 @@ async function init() {
 			curr = d3.select(this);
 			curr.transition()
 				.duration(2000)
-				.attr("d", "M 0 0 h400")
+				.attr("d", "M 0 0 h400");
 		})
 		.on("mouseout", function(d,i) {
 			curr = d3.select(this);
