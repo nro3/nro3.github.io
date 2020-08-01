@@ -54,7 +54,14 @@ async function init() {
 			.attr("d", function(d,i) { return ("M"+(x(new Date(d.Date)))+ " 0 v400"); })
 			.attr("stroke-dasharray", "3,3")
 			.attr("stroke-width", "3px")
-			.attr("stroke", "black");
+			.attr("stroke", "black")
+		.on("mouseover", function(d,i) {
+			curr = d3.select(this);
+			curr.transition()
+				.duration(2000)
+				.delay(1000)
+				.attr("d", "M 0 0 h400")
+		});
 	
 	svg.append("g")
 		.attr("transform","translate("+margin+","+margin+")")
@@ -63,7 +70,7 @@ async function init() {
 		.enter()
 		.append("text")
 			.style("font-size", 12)
-			.attr("fill", "13117B")
+			.attr("fill", "red")
 			.append("textPath")
 				.attr("xlink:href", function(d,i) { return "#myLine"+i; })
 				.text(function(d,i) { return d.Event; });
