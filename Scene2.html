@@ -75,7 +75,7 @@ async function init() {
 			.attr("id", function(d,i) { return "myLine"+i; })
 			.attr("d", function(d,i) { return ("M"+Math.round(x(new Date(d.Date)))+ " 0 v400"); })
 			.attr("stroke-dasharray", "7,2")
-			.attr("stroke-width", "3px")
+			.attr("stroke-width", "2px")
 			.attr("stroke", "grey")
 		.on("click", function(d,i) {
 			curr = d3.select(this);
