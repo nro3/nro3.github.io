@@ -50,7 +50,12 @@ async function init() {
 				.attr("r", function(d,i) {
 					var tempNumber = (+d.New_Daily_Cases)/200;
 					return (2+tempNumber); })
-				.attr("fill", "blue");
+				.attr("fill", "LightBlue");
+			svg.append("text")
+				.attr("id", function(d,i) { return "myCircle"+i; })
+				.attr("x", function(d,i) { return x(new Date(d.Date)); })
+				.attr("y", function(d,i) { return y(d.Total_Cases); })
+				.text(function(d,i) { return "["+d.date+","+"d.Total_Cases"+"]"; });
 		})
 		.on("mouseout", function(d,i) {
 			curr = d3.select(this);
@@ -61,6 +66,7 @@ async function init() {
 					var tempNumber = (+d.New_Daily_Cases)/400;
 					return (2+tempNumber); })
 				.attr("fill", function(d,i) {return color(d.New_Daily_Cases); });
+			d3.select(function(d,i) { return "#myCircle"+i; }).remove()
 		});
 			
 	svg.append("g")
