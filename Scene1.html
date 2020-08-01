@@ -65,6 +65,7 @@ async function init() {
 			curr = d3.select(this);
 			curr.transition()
 				.duration(2000)
+				.delay(5000)
 				.attr("d", function(d,i) { return ("M"+(x(new Date(d.Date)))+ " 0 v400"); })
 		});
 	
@@ -75,7 +76,7 @@ async function init() {
 		.enter()
 		.append("text")
 			.style("font-size", 12)
-			.attr("fill", "orange")
+			.attr("fill", "red")
 			.append("textPath")
 				.attr("xlink:href", function(d,i) { return "#myLine"+i; })
 				.text(function(d,i) { return d.Event; });
