@@ -54,9 +54,7 @@ async function init() {
 		})
 		.on("mouseout", function(d,i) {
 			curr = d3.select(this);
-			curr.transition()
-				.duration(2000)
-				.attr("r", function(d,i) {
+			curr.attr("r", function(d,i) {
 					var tempNumber = (+d.New_Daily_Cases)/400;
 					return (2+tempNumber); })
 				.attr("fill", function(d,i) {return color(d.New_Daily_Cases); });
