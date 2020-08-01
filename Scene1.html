@@ -63,6 +63,7 @@ async function init() {
 		.enter()
 		.append("text")
 			.style("font-size", 12)
+			.attr("fill", "13117B")
 			.append("textPath")
 				.attr("xlink:href", function(d,i) { return "#myLine"+i; })
 				.text(function(d,i) { return d.Event; });
