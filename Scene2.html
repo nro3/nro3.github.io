@@ -4,8 +4,9 @@
 <body onload='init()'>
 <h1> CS 498 Narrative Visualization </h1>
 <h3> Created by: Nicholas O'Connell </h3>
-<h4> Scene 2 </h4>
+<h4> New Daily COVID-19 Infection Trends </h4>
 <input type="button" onclick="window.location.href='https://nro3.github.io/index.html';" value="Home" />
+<input type="button" onclick="window.location.href='https://nro3.github.io/Scene1.html';" value="Prev" />
 <br>
 <script>
 async function init() {
@@ -122,7 +123,7 @@ async function init() {
 		.attr("stroke", "blue")
 		.attr("stroke-width", "2px")
 		.attr("x1", x(new Date("2020-03-16"))+margin)
-		.attr("x2", x(new Date("2020-05-14"))+margin)
+		.attr("x2", x(new Date("2020-05-29"))+margin)
 		.attr("y1", (height-margin))
 		.attr("y2", margin);
 		
@@ -158,9 +159,9 @@ async function init() {
 </script>
 <br>
 <p> This chart shows the daily number of infections in Illinois as of July 30th. The large spike at the end of April and throughout May was when Illinois saw its
-	highest rate of infections and deaths due to COVID-19. The government measures imposed in mid-March take a long time to take effect, but by the end of May the 
-	daily infections are decreased significantly due to these measures. Unfortunately, Illinois is seeing a steady rise in daily infections again through July, most
-	likely due to these stringent measures being relaxed too early. However, the rise is much slower than in May as shown by the difference in slope of the two blue 
-	trend lines, most likely due to the mandate requiring masks to be worn in public throughout Illinois. </p>
+	highest rate of infections and deaths due to COVID-19. The government measures imposed in mid-March took a long time to take effect, but by the end of May the 
+	daily infections were decreased significantly. Unfortunately, Illinois is seeing a steady rise in daily infections again through July, most
+	likely due to these stringent measures being relaxed. However, the rise is much slower than in May as shown by the difference in slope of the two blue 
+	trend lines, possibly due to the mandate requiring masks to be worn in public throughout Illinois. </p>
 </body>
 </html>
